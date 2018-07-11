@@ -1,0 +1,14 @@
+User Table
+
+CREATE TABLE `OrchidProject`.`user_table` (
+  `UserId` INT(10) NOT NULL,
+  `FirstName` VARCHAR(20) NOT NULL,
+  `LastName` VARCHAR(20) NOT NULL,
+  `MobileNumber` BIGINT(12) NOT NULL,
+  `EmailId` VARCHAR(45) NOT NULL,
+  `Role` INT(2) NOT NULL,
+  PRIMARY KEY (`UserId`),
+  UNIQUE INDEX `EmailId_UNIQUE` (`EmailId` ASC),
+  UNIQUE INDEX `UserId_UNIQUE` (`UserId` ASC),
+  UNIQUE INDEX `MobileNumber_UNIQUE` (`MobileNumber` ASC));
+

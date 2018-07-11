@@ -1,0 +1,14 @@
+com/reviewandratings/controller/ReviewController.class
+com/reviewandratings/service/LoginService.class
+com/reviewandratings/controller/LoginController.class
+com/reviewandratings/dao/impl/LoginDAOImpl.class
+com/reviewandratings/model/UserEntity.class
+com/reviewandratings/service/impl/LoginServiceImpl.class
+com/reviewandratings/ReviewAndRatingsAPI/DatabaseConfig.class
+com/reviewandratings/dao/LoginDAO.class
+com/reviewandratings/service/impl/ReviewServiceImpl.class
+com/reviewandratings/service/ReviewService.class
+com/reviewandratings/ReviewAndRatingsAPI/Application.class
+com/reviewandratings/dto/UserDTO.class
+com/reviewandratings/model/ReviewEntity.class
+com/reviewandratings/dto/UserLoginJSON.class
