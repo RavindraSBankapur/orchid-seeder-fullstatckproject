@@ -1,0 +1,14 @@
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/controller/ReviewController.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/dto/UserDTO.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/dao/LoginDAO.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/dao/impl/LoginDAOImpl.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/model/ReviewEntity.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/service/impl/ReviewServiceImpl.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/controller/LoginController.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/dto/UserLoginJSON.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/ReviewAndRatingsAPI/Application.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/service/LoginService.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/ReviewAndRatingsAPI/DatabaseConfig.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/service/impl/LoginServiceImpl.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/service/ReviewService.java
+/Users/getit/Documents/RandR/java_reactjs_review_rating_service/ReviewAndRatingsAPI/src/main/java/com/reviewandratings/model/UserEntity.java

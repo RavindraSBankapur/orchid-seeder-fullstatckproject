@@ -1,0 +1,51 @@
+
+.ReviewHeader
+{
+margin-top: 30px;
+font-size: 35px;
+display: inherit;
+}
+.ReviewContent{
+    font-size: 13px;
+    line-height: 1.5;
+    display: inherit;
+    text-align: center;
+    padding-top: 10px;
+}
+.ReviewHeaderStar
+{
+    font-size: 20px;
+}
+.progressbarHeight
+{
+    height:9px; 
+    margin:8px 12px;
+}
+.progressbarWidth
+{
+    width:280px;
+}
+.ratingBlock
+{
+    width:77%;
+}
+.averageBlock
+{
+    width:21%; 
+    line-height:1;
+    padding-right:20px;
+}
+progressBarLineHeight
+{
+    width:35px; 
+    line-height:1;
+}
+.progressBarStar
+{
+    height:9px; 
+    margin:5px 0;
+}
+.ratingCountLeft
+{
+    margin: 2px 0px 0px -5px;
+}

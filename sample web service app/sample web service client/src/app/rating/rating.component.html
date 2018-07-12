@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title></title>
+  </head>
+  <body class="background" > 
+ 
+      <div class="header">
+          <app-header></app-header>
+  </div>
+  <hr class="colorgraph">
+<div>
+    <!-- Fixed navbar -->
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+          <form action="" method="post" class="emp-form" #submitReviewForm="ngForm" (ngSubmit)="onSubmit(submitReviewForm)">
+          <div class="col-xs-12 col-md-12 text-center">
+              <div class="rating">
+                  <div class="rating-block"  ng-style="starColor">
+                          <div  class="form-group col md-3 ratingStarAlign">
+                              <input class="star star-5"  id="star-5" type="radio" name="ratings"  value="1" (click)="updateRating(5)"/>
+                              <label class="star star-5" style="cursor: pointer;" for="star-5"></label>
+                              <input class="star star-4" id="star-4" type="radio" name="ratings"  value="2" (click)="updateRating(4)"/>
+                              <label class="star star-4"  style="cursor: pointer;" for="star-4"></label>
+                              <input class="star star-3"  id="star-3" type="radio" name="ratings" value="3" (click)="updateRating(3)"/>
+                              <label class="star star-3" style="cursor: pointer;"for="star-3"></label>
+                              <input class="star star-2"  id="star-2" type="radio" name="ratings"  value="4" (click)="updateRating(2)"/>
+                              <label class="star star-2" style="cursor: pointer;" for="star-2"></label>
+                              <input class="star star-1" id="star-1" type="radio" name="ratings" value="5" (click)="updateRating(1)"/>
+                              <label class="star star-1" style="cursor: pointer;" for="star-1"></label>
+                           </div>
+                      <div>
+                        <textarea  name="comments" class="commentbox" id="" cols="68" rows="4" placeholder="Please leave your comment here" [(ngModel)]="addReview.comments" required></textarea>
+                      </div>
+                      <div> 
+                        <br>
+                        <button [disabled]="!submitReviewForm.valid" class="btn btn-success btn-green" name="submit" value="submit" type="submit" style="float:right;">Submit</button>
+                      </div>
+                    </div>
+              
+              </div>
+              </div>
+            </form>
+      </div>
+			<div class="col-sm-5">
+        <h4>Ratings and Reviews</h4>
+        <app-average-rating></app-average-rating>
+      </div>
+		</div>			
+		<div class="row">
+        <app-review-list></app-review-list>
+    </div>
+
+    <div class="row footer">
+      <app-footer></app-footer>
+    </div>
+    </div> <!-- /container -->
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </body>
+</html>

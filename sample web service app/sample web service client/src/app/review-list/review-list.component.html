@@ -1,0 +1,65 @@
+
+    <div class="col-sm-12">
+      <hr>
+      <div class="sortDiv">
+          <span class="filterText">Select Filter:</span>
+        
+          <select style="width: 150px;"  [(ngModel)]="selectedElement" (change)="filterApplied($event.target.value)">
+              <option *ngFor="let option of filterOptions" [value]="option.id">
+                  {{option.Name}}
+              </option>
+          </select>
+        </div>
+      <div class="review-block">
+        <pagination-controls (pageChange)="p =$event" class="paginationStyle"></pagination-controls>
+        <div class="row" style="margin-bottom: 8px;" *ngFor="let reviews of webClientService.reviewCollection  | paginate: { itemsPerPage: 15, currentPage: p };" >
+          <div class="col-sm-2">
+            <img src="assets/Images/man-icon.png" style="height: 79px;width: 75px;" class="img-rounded">
+       <div class="review-block-name" style="margin-left: 12%;">{{reviews.userName}}</div>
+            <div class="review-block-date" style="margin-left: 2%;">{{reviews.postedDate | date: 'dd-MM-yyyy'}}<br/><span>{{reviews.postedDate | timeAgo}}</span>
+             </div>
+          </div>
+          <div class="col-sm-10" >
+        <div class="review-block-rate" >
+                <button  type="button" [class]="getStar(reviews.ratings,1)" aria-label="Left Align">
+   <span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+         <button type="button" [class]="getStar(reviews.ratings,2)"aria-label="Left Align">
+                      <span class="glyphicon glyphicon-star"aria-hidden="true"></span>
+                    </button>
+
+                  <button type="button" [class]="getStar(reviews.ratings,3)" aria-label="Left Align">
+     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  </button>
+                    <button type="button" [class]="getStar(reviews.ratings,4)" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                      </button>
+              <button type="button" [class]="getStar(reviews.ratings,5)" aria-label="Left Align">
+<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+</button>
+            </div>
+            <div class="review-block-description">{{reviews.reviewText}}</div>
+        <div style="padding-top: 43px;">
+            <button style="color:black !important" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align" (click)="LikeClicked(reviews.reviewId,reviews.likedByUser)">
+         <i  Class="fa fa-thumbs-up"  [ngStyle]="{'color': reviews.likedByUser  ? '#0B049D' : '#f0ad4e'}" ></i >
+              </button>
+              <button style="color:black !important" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align" (click)="DisLikeClicked(reviews.reviewId,reviews.dislikedByUser)">
+                  <i Class="fa fa-thumbs-down" [ngStyle]="{'color':reviews.dislikedByUser  ? '#0B049D' : '#f0ad4e'}"></i>
+                </button>
+                <button style="color:black !important" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align" >
+                  <i Class="fa fa-flag" [ngStyle]="{'color':'#f0ad4e'}"></i>
+                </button>
+                <button style="color:black !important" type="button" class="btn btn-default btn-grey btn-sm" aria-label="Left Align" >
+                  <i Class="fa fa-share" [ngStyle]="{'color':'#f0ad4e'}"></i>
+                </button>
+</div>
+        <div >
+       <span style="padding-left: 11px;">{{reviews.likeCount}}</span>
+      <span style="padding-left: 27px;">{{reviews.dislikeCount}}</span>
+        </div>
+          </div>
+          <hr class="devider"/>
+        </div>
+        <pagination-controls (pageChange)="p =$event" class="paginationStyle"></pagination-controls>
+     </div>
+    </div>
+    
