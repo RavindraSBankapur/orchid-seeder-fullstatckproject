@@ -71,4 +71,15 @@ public class UserServiceImpl implements UserService{
 		
 		return userDTO;
 	}
+
+	@Override
+	@Transactional
+	public UserDTO getUserByEmailID(String emailId) {
+		
+		UserEntity userEntity = userDAO.getUserByEmailID(emailId);
+		
+		UserDTO userDTO = UserMapper.entityToDtoMapper(userEntity);
+		
+		return userDTO;
+	}
 }

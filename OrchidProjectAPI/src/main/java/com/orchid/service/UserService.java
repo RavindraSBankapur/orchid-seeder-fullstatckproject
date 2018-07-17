@@ -21,4 +21,5 @@ import com.orchid.model.UserEntity;
 	public UserDTO loginService(String emailId, long mobileNumber, String password);
 	public List<UserEntity> getAllUsers();
 	public UserDTO getUserById(int userId);
+	public UserDTO getUserByEmailID(String emailId);
 }

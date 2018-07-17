@@ -23,4 +23,5 @@ import com.orchid.model.UserEntity;
 	public UserEntity getUserDetails(String emailId, long mobileNumber, String password);
 	public List<UserEntity> getAllUsers();
 	public UserEntity getUserById(int userId);
+	public UserEntity getUserByEmailID(String emailId);
 }

@@ -1,14 +1,11 @@
 package com.orchid.controller;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,18 +34,16 @@ public class UserController {
 	private static final String LOGOUT_USER = "/logout";
 	private static final String GET_USER = "/getAllUsers";
 	private static final String GET_USER_BY_ID = "/getUser/{userId}";
-	
+	private static final String GET_USER_EMAIL="/getUserBy";
 	@Autowired
 	private UserService userService;
 
 	public UserController() {
 		System.out.println("user controller created..");
 	}
-
 	@RequestMapping(value = REGISTER_USER, method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> registerController(UserDTO userDTO, HttpServletRequest request, HttpServletResponse response) {
-		
 		Map<String, Object> responseObject = new LinkedHashMap<String,Object>();
 		if(userDTO.getEmailId()!=null && userDTO.getMobileNumber()!=0 && userDTO.getPassword()!=null && userDTO.getFirstName()!=null && userDTO.getLastName()!=null){
 			userDTO = userService.registerService(userDTO);
@@ -72,7 +67,6 @@ public class UserController {
 	
 	@RequestMapping(value=LOGIN_USER,method=RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> loginController(UserLoginDTO userLoginDTO,HttpServletRequest request, HttpServletResponse response, HttpSession session){
-				
 		Map<String, Object> responseObj = new LinkedHashMap<String, Object>();
 		UserDTO userDTO = null;
 		if(userLoginDTO != null){
@@ -125,7 +119,7 @@ public class UserController {
 			return new ResponseEntity<Map<String,Object>>(responseObject,HttpStatus.OK);
 		}
 		responseObject.put("success", false);
-	
+		
 		return new ResponseEntity<Map<String,Object>>(responseObject,HttpStatus.BAD_REQUEST);
 	}
 	
@@ -144,4 +138,30 @@ public class UserController {
 		responseObject.put("message", "No User Assigned to the entered UserID");
 		return new ResponseEntity<Map<String,Object>>(responseObject, HttpStatus.BAD_REQUEST);
 	}
+	
+	@RequestMapping(value = GET_USER_EMAIL, method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<Map<String, Object>> getUserByEmail(@RequestParam("emailId") String emailId, HttpServletRequest request, HttpServletResponse response){
+		Map<String, Object> responseObject = new LinkedHashMap<String, Object>();
+		UserDTO userDTO = userService.getUserByEmailID(emailId);
+		if(userDTO!=null){
+			responseObject.put("succcess", true);
+			responseObject.put("user", userDTO);
+			return new ResponseEntity<Map<String,Object>>(responseObject, HttpStatus.OK);
+		}
+		responseObject.put("success", false);
+		responseObject.put("message", "No User Asssigned to the entered EmailId");
+		return  new ResponseEntity<Map<String, Object>>(responseObject,HttpStatus.BAD_REQUEST);
+	}
+	public ResponseEntity<Map<String, Object>> updateUserByEmail(HttpServletRequest request, HttpServletResponse response, UserDTO userDTO){
+		Map<String, Object> responseObject = new LinkedHashMap<String,Object>();
+		/*UserDTO userDTO = userService.updateUserByEmail(email);*/
+		
+		
+		
+		return new ResponseEntity<Map<String,Object>>(responseObject,HttpStatus.OK);
+	}
+	
+	
+	
 }
