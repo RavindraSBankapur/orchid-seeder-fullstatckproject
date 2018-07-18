@@ -26,10 +26,14 @@ public interface UserService {
 	public List<UserEntity> getAllUsers();
 
 	public UserDTO getUserById(int userId);
+<<<<<<< HEAD
 
 	public UserDTO getUserByEmailID(String emailId);
 
 	public void updateUser(UserDTO userDTO);
 
 	public void updatePassword(UserDTO userDTO);
+=======
+	public UserDTO getUserByEmailID(String emailId);
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 }

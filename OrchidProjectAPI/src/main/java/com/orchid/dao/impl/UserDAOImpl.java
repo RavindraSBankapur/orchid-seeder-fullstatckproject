@@ -75,12 +75,18 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public UserEntity getUserByEmailID(String emailId) {
+<<<<<<< HEAD
 		Session session = sessionFactory.getCurrentSession();
+=======
+
+		Session session=sessionFactory.getCurrentSession();
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 		Criterion userCri = Restrictions.eq("emailId", emailId);
 		Criteria cri = session.createCriteria(UserEntity.class).add(userCri);
 		UserEntity userEntity = (UserEntity) cri.uniqueResult();
 		return userEntity;
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void updateUser(UserEntity userEntity) {
@@ -102,4 +108,8 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
+=======
+	
+	
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 }

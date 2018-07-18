@@ -1,5 +1,4 @@
 package com.orchid.controller;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +35,7 @@ public class UserController {
 	private static final String LOGOUT_USER = "/logout";
 	private static final String GET_USER = "/getAllUsers";
 	private static final String GET_USER_BY_ID = "/getUser/{userId}";
+<<<<<<< HEAD
 	// has to be fixed with some validations
 	private static final String GET_USER_EMAIL = "/getUserBy";
 	// it should be enhanced with some other modification
@@ -43,20 +43,28 @@ public class UserController {
 	// stil not working needs to be fixed
 	private static final String UPDATE_PASSWORD = "/updatePassword";
 
+=======
+	private static final String GET_USER_EMAIL="/getUserBy";
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 	@Autowired
 	private UserService userService;
 
 	public UserController() {
 		System.out.println("user controller created..");
 	}
-
 	@RequestMapping(value = REGISTER_USER, method = RequestMethod.POST)
 	@ResponseBody
+<<<<<<< HEAD
 	public ResponseEntity<Map<String, Object>> registerController(UserDTO userDTO, HttpServletRequest request,
 			HttpServletResponse response) {
 		Map<String, Object> responseObject = new LinkedHashMap<String, Object>();
 		if (userDTO.getEmailId() != null && userDTO.getMobileNumber() != 0 && userDTO.getPassword() != null
 				&& userDTO.getFirstName() != null && userDTO.getLastName() != null) {
+=======
+	public ResponseEntity<Map<String, Object>> registerController(UserDTO userDTO, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> responseObject = new LinkedHashMap<String,Object>();
+		if(userDTO.getEmailId()!=null && userDTO.getMobileNumber()!=0 && userDTO.getPassword()!=null && userDTO.getFirstName()!=null && userDTO.getLastName()!=null){
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 			userDTO = userService.registerService(userDTO);
 			if (userDTO != null) {
 				responseObject.put("message", true);
@@ -73,10 +81,16 @@ public class UserController {
 			return new ResponseEntity<Map<String, Object>>(responseObject, HttpStatus.EXPECTATION_FAILED);
 		}
 	}
+<<<<<<< HEAD
 
 	@RequestMapping(value = LOGIN_USER, method = RequestMethod.POST)
 	public ResponseEntity<Map<String, Object>> loginController(UserLoginDTO userLoginDTO, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
+=======
+	
+	@RequestMapping(value=LOGIN_USER,method=RequestMethod.POST)
+	public ResponseEntity<Map<String, Object>> loginController(UserLoginDTO userLoginDTO,HttpServletRequest request, HttpServletResponse response, HttpSession session){
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 		Map<String, Object> responseObj = new LinkedHashMap<String, Object>();
 		UserDTO userDTO = null;
 		if (userLoginDTO != null) {
@@ -134,8 +148,13 @@ public class UserController {
 			return new ResponseEntity<Map<String, Object>>(responseObject, HttpStatus.OK);
 		}
 		responseObject.put("success", false);
+<<<<<<< HEAD
 
 		return new ResponseEntity<Map<String, Object>>(responseObject, HttpStatus.BAD_REQUEST);
+=======
+		
+		return new ResponseEntity<Map<String,Object>>(responseObject,HttpStatus.BAD_REQUEST);
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 	}
 
 	@RequestMapping(value = GET_USER_BY_ID, method = RequestMethod.GET)
@@ -154,6 +173,7 @@ public class UserController {
 		responseObject.put("message", "No User Assigned to the entered UserID");
 		return new ResponseEntity<Map<String, Object>>(responseObject, HttpStatus.BAD_REQUEST);
 	}
+<<<<<<< HEAD
 
 	@RequestMapping(value = GET_USER_EMAIL, method = RequestMethod.GET)
 	@ResponseBody
@@ -193,4 +213,32 @@ public class UserController {
 		return new ResponseEntity<Map<String, Object>>(responseObject, HttpStatus.OK);
 	}
 
+=======
+	
+	@RequestMapping(value = GET_USER_EMAIL, method=RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<Map<String, Object>> getUserByEmail(@RequestParam("emailId") String emailId, HttpServletRequest request, HttpServletResponse response){
+		Map<String, Object> responseObject = new LinkedHashMap<String, Object>();
+		UserDTO userDTO = userService.getUserByEmailID(emailId);
+		if(userDTO!=null){
+			responseObject.put("succcess", true);
+			responseObject.put("user", userDTO);
+			return new ResponseEntity<Map<String,Object>>(responseObject, HttpStatus.OK);
+		}
+		responseObject.put("success", false);
+		responseObject.put("message", "No User Asssigned to the entered EmailId");
+		return  new ResponseEntity<Map<String, Object>>(responseObject,HttpStatus.BAD_REQUEST);
+	}
+	public ResponseEntity<Map<String, Object>> updateUserByEmail(HttpServletRequest request, HttpServletResponse response, UserDTO userDTO){
+		Map<String, Object> responseObject = new LinkedHashMap<String,Object>();
+		/*UserDTO userDTO = userService.updateUserByEmail(email);*/
+		
+		
+		
+		return new ResponseEntity<Map<String,Object>>(responseObject,HttpStatus.OK);
+	}
+	
+	
+	
+>>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 }
