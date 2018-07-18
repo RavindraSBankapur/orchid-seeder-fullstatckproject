@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.orchid")
 @Configuration
 @SpringBootApplication
-public class OrchidProjectApplication extends SpringBootServletInitializer{
+public class OrchidProjectApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(OrchidProjectApplication.class, args);
 	}
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(OrchidProjectApplication.class);
-	}	
+	}
 }
