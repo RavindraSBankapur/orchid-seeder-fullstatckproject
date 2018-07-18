@@ -86,7 +86,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-<<<<<<< HEAD
 	public void updateUser(UserDTO userDTO) {
 		UserEntity userEntity = UserMapper.dtoToEntityMapper(userDTO);
 		userEntity.setUpdatedTimeStamp(userDTO.getUpdatedTimeStamp());
@@ -101,14 +100,5 @@ public class UserServiceImpl implements UserService {
 		userEntity.setPassword(userDTO.getPassword());
 		userDAO.updateUserPassword(userEntity);
 
-=======
-	public UserDTO getUserByEmailID(String emailId) {
-		
-		UserEntity userEntity = userDAO.getUserByEmailID(emailId);
-		
-		UserDTO userDTO = UserMapper.entityToDtoMapper(userEntity);
-		
-		return userDTO;
->>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 	}
 }

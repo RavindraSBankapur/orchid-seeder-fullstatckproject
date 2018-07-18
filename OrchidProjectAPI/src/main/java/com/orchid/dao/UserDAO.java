@@ -27,7 +27,6 @@ public interface UserDAO {
 	public List<UserEntity> getAllUsers();
 
 	public UserEntity getUserById(int userId);
-<<<<<<< HEAD
 
 	public UserEntity getUserByEmailID(String emailId);
 
@@ -35,7 +34,4 @@ public interface UserDAO {
 
 	public void updateUserPassword(UserEntity userEntity);
 
-=======
-	public UserEntity getUserByEmailID(String emailId);
->>>>>>> 114317501f74e8f82b2c2a74660478e8743ed290
 }
